@@ -1,3 +1,3 @@
 class Admin::BaseController < ApplicationController
-  http_basic_authenticate_with name: "admin", password: "admin", except: :index
+  http_basic_authenticate_with name: "admin", password: "admin"
 end
