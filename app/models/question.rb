@@ -2,6 +2,8 @@ class Question < ApplicationRecord
   has_many :question_options, dependent: :destroy
   serialize :result, Array
 
+  accepts_nested_attributes_for :question_options
+  
   enum status: %i(useing unusing)
 
   def status_i18n
