@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   resource :session
 
   root "home#show"
+
+  namespace :admin do
+    resources :questions
+  end
 end
