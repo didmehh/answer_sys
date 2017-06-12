@@ -4,4 +4,8 @@ class Admin::QuestionsController < Admin::BaseController
     @questions = Question.all.order('id desc')
   end
 
+  def new
+    @question = Question.new
+  end
+
 end

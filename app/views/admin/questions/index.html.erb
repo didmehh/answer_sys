@@ -1,1 +1,22 @@
-<h3>Hello Ruby!</h3>
+<%= link_to '新建', new_admin_question_path, class: 'green-btn' %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>内容</th>
+      <th>状态</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each.with_index(1) do |question, index| %>
+      <tr>
+        <th scope="row"> <%= index %></th>
+        <td> <%= question.content %></td>
+        <td> <%= question.status_i18n %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
