@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>题目内容</th>
+      <th>正确答案</th>
+      <th>考生答案</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @questions.each.with_index(1) do |q, i| %>
+      <tr>
+        <th scope="row"> <%= i %></th>
+        <td> <%= q.content %></td>
+        <td>
+          <% q.question_options.by_ids(q.result).each.with_index(1) do |o, i| %>
+            <span><%= i %>:<%= o.content%></span></br>
+          <% end %>
+        </td>
+        <td>
+          <% answer = current_user.answers.by_question(q.id).last %>
+          <% q.question_options.by_ids(answer.result).each.with_index(1) do |o, i| %>
+            <span><%= i %>:<%= o.content%></span></br>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

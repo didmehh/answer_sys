@@ -40,9 +40,6 @@
         <div class="offset-sm-2 col-sm-10">
           <% submit_value = @questions.last_page? ? "提交答卷" : "下一题" %>
           <%= f.submit submit_value, class: 'btn btn-info' %>
-          <!-- <%= link_to_previous_page @questions, '上一题' %> -->
-          <!-- <span style="margin-left: 20px;"></span> -->
-          <!-- <%= link_to_next_page @questions, '下一题' %> -->
         </div>
       </div>
     <% end %>
