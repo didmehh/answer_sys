@@ -1,10 +1,10 @@
-<h2>答题中,共<%= @questions.count(:id)%>题</h2>
+<h2>答题中,共<%= Question.using.count(:id)%>题</h2>
 <div class="app_contain">
   <div class="container">
     <%= form_for @answer, url: answers_path do |f| %>
-      <input type="hidden" name="next_page" value="<%= @questions.page(params[:page]).next_page %>">
+      <input type="hidden" name="next_page" value="<%= @questions.next_page %>">
       <input type="hidden" name="current_page" value="<%= params[:page] || 1 %>">
-      <% @questions.page(params[:page]).each do |question| %>
+      <% @questions.each do |question| %>
       <%= f.hidden_field :question_id, value: question.id %>
         <div class="form-group row">
           <label for="inputEmail3" class="col-sm-2 col-form-label">题目内容</label>
@@ -38,10 +38,11 @@
 
       <div class="form-group row" style="margin-left: 200px;margin-top: 60px;">
         <div class="offset-sm-2 col-sm-10">
-          <%= f.submit "下一题", class: 'btn btn-info' %>
-          <!-- <%= link_to_previous_page @questions.page(params[:page]), '上一题' %> -->
+          <% submit_value = @questions.last_page? ? "提交答卷" : "下一题" %>
+          <%= f.submit submit_value, class: 'btn btn-info' %>
+          <!-- <%= link_to_previous_page @questions, '上一题' %> -->
           <!-- <span style="margin-left: 20px;"></span> -->
-          <!-- <%= link_to_next_page @questions.page(params[:page]), '下一题' %> -->
+          <!-- <%= link_to_next_page @questions, '下一题' %> -->
         </div>
       </div>
     <% end %>

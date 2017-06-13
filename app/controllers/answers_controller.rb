@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   def new
     @answer = UserAnswer.new
-    @questions = Question.using
+    @questions = Question.using.page(params[:page])
   end
 
   def create
