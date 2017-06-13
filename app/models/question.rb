@@ -1,4 +1,6 @@
 class Question < ApplicationRecord
+  paginates_per 1
+
   has_many :question_options, dependent: :destroy
   serialize :result, Array
 

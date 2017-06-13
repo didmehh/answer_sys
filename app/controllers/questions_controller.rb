@@ -1,5 +1,11 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Questions.using
+    answer?
+    @questions = Question.using
+  end
+
+  private
+  def answer?
+    
   end
 end
