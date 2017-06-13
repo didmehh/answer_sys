@@ -13,4 +13,4 @@ Rails.application.config.assets.version = '1.0'
 # js
 Rails.application.config.assets.precompile += %w( thiny.js )
 #css
-Rails.application.config.assets.precompile += %w( thiny.css )
+Rails.application.config.assets.precompile += %w( thiny.css admin.css)
