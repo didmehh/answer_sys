@@ -3,7 +3,7 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
     create_table :questions do |t|
       t.text :content
       t.string :result
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps
     end

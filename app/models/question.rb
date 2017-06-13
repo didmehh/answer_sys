@@ -3,11 +3,11 @@ class Question < ApplicationRecord
   serialize :result, Array
 
   accepts_nested_attributes_for :question_options
-  
-  enum status: %i(useing unusing)
+
+  enum status: %i(using unusing)
 
   def status_i18n
     statuses = { using: '使用中', unusing: '未使用' }
-    statuses.fetch(status, "未知")
+    statuses.fetch(status.to_sym, "未知")
   end
 end
