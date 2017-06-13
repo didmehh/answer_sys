@@ -6,6 +6,6 @@ class QuestionsController < ApplicationController
 
   private
   def answer?
-    
+
   end
 end
