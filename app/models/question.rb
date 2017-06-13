@@ -2,6 +2,7 @@ class Question < ApplicationRecord
   paginates_per 1
 
   has_many :question_options, dependent: :destroy
+  has_many :answers, class_name: 'UserAnswer'
   serialize :result, Array
 
   accepts_nested_attributes_for :question_options
