@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :login_required?
 
   def current_user
-    session[:username]
+    @current_user ||= User.find_by(name: session[:username])
   end
 
   private
