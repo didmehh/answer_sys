@@ -41,6 +41,7 @@ group :development, :test do
 
   gem 'pry'
   gem 'pry-nav'
+  gem 'rails_db'
 end
 
 group :development do
